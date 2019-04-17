@@ -10,18 +10,16 @@
 /**
  * Checks dependencies.
  *
- * This plugin requires Advanced Custom Fields and either Events Organiser or Events Manager.
+ * This plugin requires Advanced Custom Fields and Events Organiser.
  *
  * @return boolean
  */
 function bdset_check_dependencies() {
 
 	// Check for Events Organiser.
-	if ( ! function_exists( eo_get_events() ) ) {
-
+	if ( ! function_exists( 'eo_get_events' ) ) {
 		return false;
 	}
-
 	// Check for Advanced Custom Fields.
 	// if ( ! class_exists( 'ACF' ) ) {
 	// return false;
@@ -36,5 +34,5 @@ function bdset_check_dependencies() {
  * @return void
  */
 function bdset_init_fail_notice() {
-	echo '<div class="error"><p><strong>Evangelists Toolbox cannot be activated. </strong>Be sure that you have all required plugins installed.</p></div>';
+	echo '<div class="error"><p><strong>Evangelists Toolbox cannot be activated. </strong>You do not have all the required plugins installed.</p></div>';
 }

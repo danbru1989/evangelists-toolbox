@@ -9,6 +9,22 @@
 	],
 "creatorBuild": "29156",
 "files": {
+	"/.gitattributes": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.gitattributes",
+		"oF": 0
+		},
+	"/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.gitignore",
+		"oF": 0
+		},
 	"/assets/css/admin.css": {
 		"aP": 1,
 		"bl": 0,
@@ -29,17 +45,6 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"/assets/js/google-maps.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/assets/js/google-maps-min.js",
-		"oF": 1,
-		"sC": 3,
-		"tS": 0
-		},
 	"/assets/scss/admin.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -49,11 +54,11 @@
 		"ma": 0,
 		"oA": 0,
 		"oAP": "/assets/css/admin.css",
-		"oF": 2,
+		"oF": 3,
 		"oS": 3,
 		"uL": 1
 		},
-	"/assets/scss/admin/_admin-columns.scss": {
+	"/assets/scss/admin/_event-organiser.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -61,20 +66,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "/assets/scss/admin/_admin-columns.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"/assets/scss/admin/_admin-pages.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/assets/scss/admin/_admin-pages.css",
+		"oAP": "/assets/scss/admin/_event-organiser.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -92,131 +84,12 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"/assets/scss/public.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/assets/css/public.css",
-		"oF": 2,
-		"oS": 3,
-		"uL": 1
-		},
-	"/assets/scss/public/_index.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/assets/scss/public/_index.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"/assets/scss/public/_widget-events-list.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/assets/scss/public/_widget-events-list.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"/evangelists-crm.php": {
+	"/evangelists-toolbox.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/evangelists-crm.php",
-		"oF": 0
-		},
-	"/includes/admin-columns/communications.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-columns/communications.php",
-		"oF": 0
-		},
-	"/includes/admin-columns/contacts.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-columns/contacts.php",
-		"oF": 0
-		},
-	"/includes/admin-columns/events.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-columns/events.php",
-		"oF": 0
-		},
-	"/includes/admin-columns/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-columns/index.php",
-		"oF": 0
-		},
-	"/includes/admin-columns/organizations.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-columns/organizations.php",
-		"oF": 0
-		},
-	"/includes/admin-pages/contacts.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-pages/contacts.php",
-		"oF": 0
-		},
-	"/includes/admin-pages/events.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-pages/events.php",
-		"oF": 0
-		},
-	"/includes/admin-pages/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-pages/index.php",
-		"oF": 0
-		},
-	"/includes/admin-pages/organizations.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/admin-pages/organizations.php",
-		"oF": 0
-		},
-	"/includes/advanced-custom-fields.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/advanced-custom-fields.php",
+		"oAP": "/evangelists-toolbox.php",
 		"oF": 0
 		},
 	"/includes/dependencies.php": {
@@ -225,6 +98,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/includes/dependencies.php",
+		"oF": 0
+		},
+	"/includes/event-organiser.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/includes/event-organiser.php",
 		"oF": 0
 		},
 	"/includes/helpers.php": {
@@ -259,36 +140,12 @@
 		"oAP": "/includes/partials/index.php",
 		"oF": 0
 		},
-	"/includes/partials/itinerary.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/partials/itinerary.php",
-		"oF": 0
-		},
-	"/includes/partials/single-event.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/partials/single-event.php",
-		"oF": 0
-		},
 	"/includes/partials/travel-news.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/includes/partials/travel-news.php",
-		"oF": 0
-		},
-	"/includes/partials/widget-event-list.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/includes/partials/widget-event-list.php",
 		"oF": 0
 		},
 	"/includes/setup.php": {
@@ -298,6 +155,25 @@
 		"oA": 0,
 		"oAP": "/includes/setup.php",
 		"oF": 0
+		},
+	"/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		}
 	},
 "hooks": [
@@ -306,7 +182,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 572211949.420627,
-	"displayValue": "Evangelists CRM",
+	"displayValue": "Evangelists Toolbox",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-chloe",
 	"iconImageWasSetByUser": 0

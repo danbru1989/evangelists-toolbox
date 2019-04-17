@@ -1,6 +1,6 @@
 <?php
 /**
- * Builds the markup for displaying a paragraph describing travel plans.
+ * Builds the markup for displaying an event in paragraph form.
  *
  * @package      BrubakerDesignServices\EvangelistsToolbox
  * @author       Dan Brubaker
@@ -25,7 +25,7 @@ function bdset_travel_news() {
 /**
  * Output the Travel News loop.
  *
- * Gets the current or next event and outputs a paragraph describing travel plans.
+ * Gets the current or next event and outputs a paragraph describing the event.
  *
  * @return void
  */
@@ -33,23 +33,13 @@ function bdset_do_travel_news_loop() {
 
 	// Query events for current or next event.
 	$args = array(
-		'post_type'      => 'event',
-		'posts_per_page' => 1,
-		'orderby'        => 'meta_value',
-		'meta_key'       => 'event_dates_end_date',
-		'order'          => 'ASC',
-		'meta_query'     => array(
-			array(
-				'key'     => 'event_dates_end_date',
-				'value'   => date( 'Ymd' ),
-				'type'    => 'DATE',
-				'compare' => '>=',
-			),
-			array(
-				'key'   => 'event_display_settings',
-				'value' => 'public',
-			),
-		),
+		'post_type'        => 'event',
+		'posts_per_page'   => 1,
+		'suppress_filters' => false,
+		'event_end_after'  => 'today',
+		'meta_key'         => 'event_display_settings',
+		'meta_value'       => 'public',
+		'meta_compare'     => '=',
 	);
 
 	$event = new \WP_Query( $args );
@@ -63,189 +53,54 @@ function bdset_do_travel_news_loop() {
 
 			do_action( 'bdset_before_travel_news_content' );
 
-			$title    = get_the_title();
-			$location = bdset_get_travel_news_location();
-			$contact  = bdset_get_travel_news_contact();
+			$title = get_the_title();
 
-			// Output for current event spanning a single day.
-			if ( bdset_get_event_start( 'Y-m-d' ) == date( 'Y-m-d' ) && bdset_get_event_end( 'Y-m-d' ) == date( 'Y-m-d' ) ) {
-
-				// Event has location and contact.
-				if ( $location && $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s in %s, with %s. The meeting is today only.</div>',
-						$title,
-						$location,
-						$contact
-					);
-				}
-
-				// Event has location only.
-				if ( $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s in %s. The meeting is today only.</div>',
-						$title,
-						$location
-					);
-				}
-
-				// Event has contact only.
-				if ( ! $location && $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s, with %s. The meeting is today only.</div>',
-						$title,
-						$contact
-					);
-				}
-
-				// Event has neither location or contact.
-				if ( ! $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s. The meeting is today only.</div>',
-						$title
-					);
-				}
+			// Event syntax tense output.
+			if ( eo_get_the_start( 'Y-m-d' ) <= date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= date( 'Y-m-d' ) ) {
+				$syntax_tense = 'currently';
+			} else {
+				$syntax_tense = 'going to be';
 			}
 
-			// Output for current event spanning multiple days.
-			if ( bdset_get_event_start( 'Y-m-d' ) <= date( 'Y-m-d' ) && bdset_get_event_end( 'Y-m-d' ) > date( 'Y-m-d' ) ) {
-
-				// Event has location and contact.
-				if ( $location && $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s in %s, with %s. The meetings began on %s and are scheduled to finish on %s.</div>',
-						$title,
-						$location,
-						$contact,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has location only.
-				if ( $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s in %s. The meetings began on %s and are scheduled to finish on %s.</div>',
-						$title,
-						$location,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has contact only.
-				if ( ! $location && $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s, with %s. The meetings began on %s and are scheduled to finish on %s.</div>',
-						$title,
-						$contact,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has neither location or contact.
-				if ( ! $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We are currently at %s. The meetings began on %s and is scheduled to finish on %s.</div>',
-						$title,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
+			// Has Location output.
+			if ( eo_get_venue() ) {
+				$location = eo_get_venue_address();
+				$location = ' in ' . $location['city'] . ', ' . $location['state'];
 			}
 
-			// Output for future event spanning single day.
-			if ( bdset_get_event_start( 'Y-m-d' ) > date( 'Y-m-d' ) && bdset_get_event_end( 'Y-m-d' ) == bdset_get_event_start( 'Y-m-d' ) ) {
-
-				// Event has location and contact.
-				if ( $location && $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s in %s, with %s. The meeting is for %s only.</div>',
-						$title,
-						$location,
-						$contact,
-						bdset_get_event_start( 'l, F jS' )
-					);
-				}
-
-				// Event has location only.
-				if ( $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s in %s. The meeting is for %s only.</div>',
-						$title,
-						$location,
-						bdset_get_event_start( 'l, F jS' )
-					);
-				}
-
-				// Event has contact only.
-				if ( ! $location && $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s, with %s. The meeting is for %s only.</div>',
-						$title,
-						$contact,
-						bdset_get_event_start( 'l, F jS' )
-					);
-				}
-
-				// Event has neither location or contact.
-				if ( ! $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s. The meeting is for %s only.</div>',
-						$title,
-						bdset_get_event_start( 'l, F jS' )
-					);
-				}
+			// Has Primary Contact output.
+			if ( get_field( 'primary_event_contact' ) ) {
+				$contact = ' with ' . get_field( 'primary_event_contact' );
 			}
 
-			// Output for future event spanning multiple days.
-			if ( bdset_get_event_start( 'Y-m-d' ) > date( 'Y-m-d' ) && bdset_get_event_end( 'Y-m-d' ) != bdset_get_event_start( 'Y-m-d' ) ) {
-
-				// Event has location and contact.
-				if ( $location && $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s in %s, with %s. The meeting begins on %s and is scheduled to finish on %s.</div>',
-						$title,
-						$location,
-						$contact,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has location only.
-				if ( $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s in %s. The meeting begins on %s and is scheduled to finish on %s.</div>',
-						$title,
-						$location,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has contact only.
-				if ( ! $location && $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s, with %s. The meeting begins on %s and is scheduled to finish on %s.</div>',
-						$title,
-						$contact,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
-
-				// Event has neither location or contact.
-				if ( ! $location && ! $contact ) {
-					printf(
-						'<div class="travel-news">We will be at %s. The meeting begins on %s and is scheduled to finish on %s.</div>',
-						$title,
-						bdset_get_event_start( 'F jS' ),
-						bdset_get_event_end( 'l, F jS' )
-					);
-				}
+			// Current single day event.
+			if ( eo_get_the_start( 'Y-m-d' ) === date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) === date( 'Y-m-d' ) ) {
+				$date_info = ' The meeting is today only.';
 			}
+
+			// Current multiday event.
+			if ( eo_get_the_start( 'Y-m-d' ) < date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= date( 'Y-m-d' ) ) {
+				$date_info = ' The meetings began on ' . eo_get_the_start( 'F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
+			}
+
+			// Future single day event.
+			if ( eo_get_the_start( 'Y-m-d' ) > date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) === eo_get_the_start( 'Y-m-d' ) ) {
+				$date_info = ' The meeting will be ' . eo_get_the_start( 'l, F jS' ) . ' only.';
+			}
+
+			// Future multiday event.
+			if ( eo_get_the_start( 'Y-m-d' ) > date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) > eo_get_the_start( 'Y-m-d' ) ) {
+				$date_info = ' The meetings will begin on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
+			}
+
+			printf(
+				'<div class="travel-news">We are %s at %s%s%s.%s</div>',
+				esc_html( $syntax_tense ),
+				esc_html( $title ),
+				esc_html( $location ),
+				esc_html( $contact ),
+				esc_html( $date_info )
+			);
 
 			do_action( 'bdset_after_travel_news_content' );
 
@@ -253,42 +108,10 @@ function bdset_do_travel_news_loop() {
 		wp_reset_postdata();
 
 		do_action( 'bdset_after_travel_news_while' );
+
 	} else {
+
 		echo 'There are no upcoming meetings to display.';
-	}
-}
 
-/**
- * Gets the location / address information. For use in the Travel News loop.
- *
- * @return $location
- */
-function bdset_get_travel_news_location() {
-	if ( ! get_field( 'physical_address', get_field( 'event_organization' ) ) ) {
-		$location = false;
-	} else {
-		$location = bdset_get_short_address(
-			get_field(
-				'physical_address',
-				get_field( 'event_organization' )
-			),
-			false
-		);
 	}
-	return $location;
-}
-
-/**
- * Gets the contact information. For use in the Travel News loop.
- *
- * @return $contact
- */
-function bdset_get_travel_news_contact() {
-	if ( ! get_field( 'primary_event_contact' ) ) {
-		$contact = false;
-	} else {
-		$contact = get_field( 'primary_event_contact' );
-		$contact = bdset_get_full_title_contact( $contact->ID, 1 );
-	}
-	return $contact;
 }
