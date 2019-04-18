@@ -1,30 +1,18 @@
 <?php
 /**
- * Event Organiser functionality.
+ * Event Organiser Google Maps modifications.
  *
  * @package      BrubakerDesignServices\EvangelistToolbox
  * @author       Dan Brubaker
  * @since        1.0.0
  */
 
-add_filter( 'eventorganiser_pre_insert_venue', 'bds_modify_venue_slugs' );
-/**
- * Modifies venue slugs upon save to allow two venues with the same name. Slugs become NAME + CITY + STATE.
- *
- * @param array $args The venue parameters.
- * @return $args
- */
-function bds_modify_venue_slugs( $args ) {
-	$args['slug'] = sanitize_title( $args['name'] . '-' . $args['city'] . '-' . $args['state'] );
-	return $args;
-}
-
 add_filter( 'eventorganiser_venue_map_options', 'bds_eo_map_options' );
 /**
  * Configures Event Organiser Google Maps.
  *
- * @param [type] $map_args
- * @return void
+ * @param array $map_args The map options to modify.
+ * @return $map_args
  */
 function bds_eo_map_options( $map_args ) {
 	$map_args['zoom']        = 4;
