@@ -93,11 +93,6 @@ function bdset_do_travel_news_loop() {
 				$date_info = ' The meetings will begin on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
 			}
 
-			d( $date_info );
-			d( eo_get_the_start( 'Y-m-d' ) );
-			d( date( 'Y-m-d' ) );
-			d( date_default_timezone_get() );
-
 			printf(
 				'<div class="travel-news">We are %s at %s%s%s.%s</div>',
 				esc_html( $syntax_tense ),
