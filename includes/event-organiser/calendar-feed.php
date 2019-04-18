@@ -7,9 +7,23 @@
  * @since        1.0.0
  */
 
-add_filter( 'eventorganiser_ical_description', 'bds_build_ical_description', 10, 1 );
+add_filter( 'bdset_ical_location', 'bdset_build_ical_location' );
 /**
- * Builds the iCal event feed description content.
+ * Builds the calendar feed event location content.
+ *
+ * @param string $location The location information.
+ * @return $location
+ */
+function bdset_build_ical_location( $location ) {
+	$location_address = eo_get_venue_address();
+	$location = $location_address['address'] . ', ' . $location_address['city'] . ', ' . $location_address['state'] . ', ' . $location_address['country'];
+
+	return $location;
+}
+
+add_filter( 'eventorganiser_ical_description', 'bds_build_ical_description' );
+/**
+ * Builds the calendar feed event description content.
  *
  * @param string $description The event's description content.
  * @return $description
