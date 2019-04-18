@@ -74,22 +74,22 @@ function bdset_do_travel_news_loop() {
 			}
 
 			// Current single day event.
-			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) === date( 'Y-m-d' ) ) {
+			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) === current_time( 'Y-m-d' ) ) {
 				$date_info = ' The meeting is today only.';
 			}
 
 			// Current multiday event.
-			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) <= date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= date( 'Y-m-d' ) ) {
+			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) <= current_time( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= current_time( 'Y-m-d' ) ) {
 				$date_info = ' The meetings began on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
 			}
 
 			// Future single day event.
-			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > date( 'Y-m-d' ) ) {
-				$date_info = ' The meeting will be ' . eo_get_the_start( 'l, F jS' ) . ' only.';
+			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > current_time( 'Y-m-d' ) ) {
+				$date_info = ' The meeting will be ' . eo_get_the_start( 'l, F jS' ) . '.';
 			}
 
 			// Future multiday event.
-			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > date( 'Y-m-d' ) ) {
+			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > current_time( 'Y-m-d' ) ) {
 				$date_info = ' The meetings will begin on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
 			}
 
