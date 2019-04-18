@@ -54,9 +54,12 @@ function bdset_do_travel_news_loop() {
 			do_action( 'bdset_before_travel_news_content' );
 
 			$title = get_the_title();
+			$start_date = eo_get_the_start( 'Y-m-d' );
+			$end_date = eo_get_the_end( 'Y-m-d' );
+			$current_date = current_time( 'Y-m-d' );
 
 			// Event syntax tense output.
-			if ( eo_get_the_start( 'Y-m-d' ) <= date( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= date( 'Y-m-d' ) ) {
+			if ( $start_date <= $current_date && $end_date >= $current_date ) {
 				$syntax_tense = 'currently';
 			} else {
 				$syntax_tense = 'going to be';
@@ -74,22 +77,22 @@ function bdset_do_travel_news_loop() {
 			}
 
 			// Current single day event.
-			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) === current_time( 'Y-m-d' ) ) {
+			if ( $start_date === $end_date && $start_date === $current_date ) {
 				$date_info = ' The meeting is today only.';
 			}
 
 			// Current multiday event.
-			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) <= current_time( 'Y-m-d' ) && eo_get_the_end( 'Y-m-d' ) >= current_time( 'Y-m-d' ) ) {
+			if ( $start_date !== $end_date && $start_date <= $current_date && $end_date >= $current_date ) {
 				$date_info = ' The meetings began on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
 			}
 
 			// Future single day event.
-			if ( eo_get_the_start( 'Y-m-d' ) === eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > current_time( 'Y-m-d' ) ) {
+			if ( $start_date === $end_date && $start_date > $current_date ) {
 				$date_info = ' The meeting will be ' . eo_get_the_start( 'l, F jS' ) . '.';
 			}
 
 			// Future multiday event.
-			if ( eo_get_the_start( 'Y-m-d' ) !== eo_get_the_end( 'Y-m-d' ) && eo_get_the_start( 'Y-m-d' ) > current_time( 'Y-m-d' ) ) {
+			if ( $start_date !== $end_date && $start_date > $current_date ) {
 				$date_info = ' The meetings will begin on ' . eo_get_the_start( 'l, F jS' ) . ' and are scheduled to finish on ' . eo_get_the_end( 'l, F jS' ) . '.';
 			}
 
