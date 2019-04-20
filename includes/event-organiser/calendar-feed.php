@@ -17,9 +17,9 @@ add_filter( 'bdset_ical_location', 'bdset_build_ical_location' );
 function bdset_build_ical_location( $location ) {
 	$location_address = eo_get_venue_address();
 	$location         = sprintf(
-		// '%s\n%s\n%s, %s\n%s ADD THIS WHEN \n's ARE FIXED
+		// '%s\n%s\n%s, %s\n%s ADD THIS WHEN \n's ARE FIXED.
 		'%s, %s, %s, %s',
-		// eo_get_venue_name(), ADD THIS WHEN \n's ARE FIXED
+		// eo_get_venue_name(), ADD THIS WHEN \n's ARE FIXED.
 		$location_address['address'],
 		$location_address['city'],
 		$location_address['state'],
@@ -47,12 +47,12 @@ function bdset_build_ical_description( $description ) {
 	$website            = get_field( 'ministry_website' );
 	$preaching          = get_field( 'private_details_preaching' );
 	$music              = get_field( 'private_details_special_music' );
-	$childrens_meetings = get_field( 'private_details_childrens_meetings' );
-	$book_table         = get_field( 'private_details_book_table' );
 	$lodging            = get_field( 'private_details_staying_in' );
 	$lodging_notes      = get_field( 'private_details_lodging_notes' );
 	$travel_plans       = get_field( 'private_details_travel_plans' );
 	$other_notes        = get_field( 'private_details_meeting_notes' );
+	$childrens_meetings = get_field( 'private_details_childrens_meetings' );
+	$book_table         = get_field( 'private_details_book_table' );
 
 	// Add Contact Info section.
 	if ( $contact || $email || $phone || $website ) {

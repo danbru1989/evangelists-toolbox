@@ -7,18 +7,20 @@
  * @since        1.0.0
  */
 
-add_filter( 'eventorganiser_venue_map_options', 'bds_eo_map_options' );
+add_filter( 'eventorganiser_venue_map_options', 'bdset_eo_map_options' );
 /**
  * Configures Event Organiser Google Maps.
  *
  * @param array $map_args The map options to modify.
  * @return $map_args
  */
-function bds_eo_map_options( $map_args ) {
+function bdset_eo_map_options( $map_args ) {
 	$map_args['zoom']        = 4;
 	$map_args['minzoom']     = 2;
 	$map_args['scrollwheel'] = false;
-	$map_args['styles']      = bds_add_map_styles();
+	$map_args['styles']      = bdset_add_map_styles();
+
+	$map_args = apply_filters( 'bdset_map_options', $map_args );
 
 	return $map_args;
 }
@@ -28,7 +30,7 @@ function bds_eo_map_options( $map_args ) {
  *
  * @return array $styles
  */
-function bds_add_map_styles() {
+function bdset_add_map_styles() {
 	$styles = array(
 		0 =>
 		array(
@@ -111,6 +113,8 @@ function bds_add_map_styles() {
 			),
 		),
 	);
+
+	$styles = apply_filters( 'bdset_map_styles', $styles );
 
 	return $styles;
 }
