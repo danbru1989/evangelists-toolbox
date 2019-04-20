@@ -60,10 +60,10 @@ Filters the global Google Map styles. Visit https://mapstyle.withgoogle.com to c
 
 ## Change Log
 
-1.0.3 – Added proper event RSS formatting.
+1.3.0 – Added proper event RSS formatting.
 
-1.0.2 – Added map filters and updated documentation.
+1.2.0 – Added map filters and updated documentation.
 
-1.0.1 – Added iCal filters.
+1.1.0 – Added iCal filters.
 
 1.0.0 – Ititial launch.
