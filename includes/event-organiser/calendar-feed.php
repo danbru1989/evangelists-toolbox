@@ -26,6 +26,8 @@ function bdset_build_ical_location( $location ) {
 		$location_address['country']
 	);
 
+	$location = apply_filters( 'bdset_ical_location', $location );
+
 	return $location;
 }
 
@@ -68,6 +70,8 @@ function bdset_build_ical_description( $description ) {
 		if ( $website ) {
 			$contact_info .= '\n' . $website;
 		}
+
+		$contact_info = apply_filters( 'bdset_ical_contact_info', $contact_info );
 	}
 
 	// Add Ministry Info section.
@@ -86,6 +90,8 @@ function bdset_build_ical_description( $description ) {
 		if ( $book_table ) {
 			$ministry_info .= '\nBook Table – ' . $book_table;
 		}
+
+		$ministry_info = apply_filters( 'bdset_ical_ministry_info', $ministry_info );
 	}
 
 	// Add Lodging Info section.
@@ -98,6 +104,8 @@ function bdset_build_ical_description( $description ) {
 		if ( $lodging_notes ) {
 			$lodging_info .= '\n\n' . $lodging_notes;
 		}
+
+		$lodging_info = apply_filters( 'bdset_ical_lodging_info', $lodging_info );
 	}
 
 	// Add Travel Info section.
@@ -107,11 +115,15 @@ function bdset_build_ical_description( $description ) {
 		if ( $travel_plans ) {
 			$travel_info .= '\n' . $travel_plans;
 		}
+
+		$travel_info = apply_filters( 'bdset_ical_travel_info', $travel_info );
 	}
 
 	// Add Other Notes section.
 	if ( $other_notes ) {
 		$other_notes_info = '\n\n––––– Other Notes –––––\n' . $other_notes;
+
+		$other_notes_info = apply_filters( 'bdset_ical_other_notes_info', $other_notes_info );
 	}
 
 	// Compile all sections together.
