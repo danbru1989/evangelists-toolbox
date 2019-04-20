@@ -15,11 +15,7 @@ add_filter( 'the_content', 'bdset_event_rss_content' );
  * @return $content
  */
 function bdset_event_rss_content( $content ) {
-	if ( is_feed() && get_post_type() !== 'event' ) {
-
-		return $content;
-
-	} else {
+	if ( is_feed() && get_post_type() === 'event' ) {
 
 		$dates = eo_format_event_occurrence( false, false, 'M j, Y', '', ' &ndash; ', false );
 
@@ -29,6 +25,10 @@ function bdset_event_rss_content( $content ) {
 		}
 
 		$content = $dates . $location;
+
+		return $content;
+
+	} else {
 
 		return $content;
 	}
