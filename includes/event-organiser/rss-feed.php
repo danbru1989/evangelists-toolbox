@@ -25,10 +25,13 @@ function bdset_event_rss_content( $content ) {
 		}
 
 		$content = $dates . $location;
+<<<<<<< HEAD
 
 		return $content;
 
 	} else {
+=======
+>>>>>>> 615fa39036dbe5549f1abb7820e92f11bc62e430
 
 		return $content;
 	}
