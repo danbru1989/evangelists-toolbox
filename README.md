@@ -12,6 +12,7 @@ This is a WordPress plugin that provides itinerate evangelists with some tools a
 5. Filters the event custom post type RSS feed to add dates, city, state, and proper formatting.
 6. Plenty of built-in hooks and filters for extending Evangelists Toolbox – see below.
 
+
 ## Hooks & Filters
 
 ### Hooks
