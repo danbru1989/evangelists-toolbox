@@ -25,10 +25,10 @@ function bdset_event_rss_content( $content ) {
 
 		if ( eo_get_venue() ) {
 			$location = eo_get_venue_address();
-			$location = $location['city'] . ', ' . $location['state'];
+			$location = '<br/>' . $location['city'] . ', ' . $location['state'];
 		}
 
-		$content = $dates . ', ' . $location;
+		$content = $dates . $location;
 
 		return $content;
 	}
