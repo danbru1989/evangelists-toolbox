@@ -12,4 +12,6 @@ This is a WordPress plugin that provides itinerate evangelists with some tools a
 
 ## Change Log
 
+1.0.1 – Added iCal filters.
+
 1.0.0 – Ititial launch.

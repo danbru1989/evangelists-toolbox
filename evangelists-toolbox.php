@@ -3,13 +3,12 @@
  * Plugin Name: Evangelists Toolbox
  * Description: A collection of WordPress tools and integrations built for itinerate evangelists.
  *
- * Version:     1.0.0
+ * Version:     1.0.1
  *
  * Author:      Dan Brubaker
  * Author URI:  https://brubakerservices.org/
  *
  * @package    BrubakerDesignServices\EvangelistsToolbox
- * @since      1.0.0
  *
  * Text Domain: evangelists-toolbox
  */
@@ -17,7 +16,7 @@
 // Initialize Constants.
 define( 'BDSET_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'BDSET_PLUGIN_TEXT_DOMAIN', 'evangelists-toolbox' );
-define( 'BDSET_PLUGIN_VERSION', '1.0.0' );
+define( 'BDSET_PLUGIN_VERSION', '1.0.1' );
 
 add_action( 'plugins_loaded', 'bdset_init' );
 /**
