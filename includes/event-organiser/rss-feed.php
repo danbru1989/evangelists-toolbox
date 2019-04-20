@@ -4,7 +4,7 @@
  *
  * @package      BrubakerDesignServices\EvangelistToolbox
  * @author       Dan Brubaker
- * @since        1.0.2
+ * @since        1.0.3
  */
 
 add_filter( 'the_content', 'bdset_event_rss_content' );

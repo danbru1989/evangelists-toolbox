@@ -9,7 +9,7 @@ This is a WordPress plugin that provides itinerate evangelists with some tools a
 2. Creates a Travel News "widget" for use in theme developement.
 3. Hides unneeded Event Organiser admin fields.
 4. Filters iCal feed to add more itinerary details to each event.
-5. Filters event RSS feed to add city, state, and proper formatting.
+5. Filters the event custom post type RSS feed to add dates, city, state, and proper formatting.
 6. Plenty of built-in hooks and filters for extending Evangelists Toolbox – see below.
 
 ## Hooks & Filters
@@ -59,6 +59,8 @@ Filters the global Google Map styles. Visit https://mapstyle.withgoogle.com to c
 
 
 ## Change Log
+
+1.0.3 – Added proper event RSS formatting.
 
 1.0.2 – Added map filters and updated documentation.
 
