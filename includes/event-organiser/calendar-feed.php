@@ -16,19 +16,27 @@ add_filter( 'bdset_ical_location', 'bdset_build_ical_location' );
  */
 function bdset_build_ical_location( $location ) {
 	$location_address = eo_get_venue_address();
-	$location = $location_address['address'] . ', ' . $location_address['city'] . ', ' . $location_address['state'] . ', ' . $location_address['country'];
+	$location         = sprintf(
+		// '%s\n%s\n%s, %s\n%s ADD THIS WHEN \n's ARE FIXED
+		'%s, %s, %s, %s',
+		// eo_get_venue_name(), ADD THIS WHEN \n's ARE FIXED
+		$location_address['address'],
+		$location_address['city'],
+		$location_address['state'],
+		$location_address['country']
+	);
 
 	return $location;
 }
 
-add_filter( 'eventorganiser_ical_description', 'bds_build_ical_description' );
+add_filter( 'eventorganiser_ical_description', 'bdset_build_ical_description' );
 /**
  * Builds the calendar feed event description content.
  *
  * @param string $description The event's description content.
  * @return $description
  */
-function bds_build_ical_description( $description ) {
+function bdset_build_ical_description( $description ) {
 
 	$category           = bdset_get_terms_list( 'event-category' );
 	$contact            = get_field( 'primary_event_contact' );
