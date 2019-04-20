@@ -28,7 +28,7 @@ function bdset_event_rss_content( $content ) {
 			$location = $location['city'] . ', ' . $location['state'];
 		}
 
-		$content = $dates . ', ' . $location;
+		$content = $dates . '<br>' . $location;
 
 		return $content;
 	}
