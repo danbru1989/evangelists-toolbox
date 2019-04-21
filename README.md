@@ -61,6 +61,8 @@ Filters the global Google Map styles. Visit https://mapstyle.withgoogle.com to c
 
 ## Change Log
 
+1.3.1 – Added fix to only allow "public" events into the RSS feed.
+
 1.3.0 – Added proper event RSS formatting.
 
 1.2.0 – Added map filters and updated documentation.
