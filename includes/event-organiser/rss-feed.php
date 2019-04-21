@@ -15,7 +15,7 @@ add_action( 'pre_get_posts', 'bdset_set_rss_query_args' );
  * @return void
  */
 function bdset_set_rss_query_args( $query ) {
-	if ( is_feed() && in_array( $query->get( 'post_type' ), array( 'event' ) ) ) {
+	if ( is_feed() && in_array( $query->get( 'post_type' ), array( 'event' ), true ) ) {
 		$query->set( 'meta_key', 'event_display_settings' );
 		$query->set( 'meta_value', 'public' );
 	}
