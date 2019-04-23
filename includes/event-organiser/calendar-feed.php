@@ -7,7 +7,7 @@
  * @since        1.0.0
  */
 
-add_filter( 'bdset_ical_location', 'bdset_build_ical_location' );
+add_filter( 'bdset_ical_location_modifier', 'bdset_build_ical_location' );
 /**
  * Builds the calendar feed event location content.
  *
@@ -17,15 +17,22 @@ add_filter( 'bdset_ical_location', 'bdset_build_ical_location' );
 function bdset_build_ical_location( $location ) {
 	$location_address = eo_get_venue_address();
 	$location         = sprintf(
-		// '%s\n%s\n%s, %s\n%s ADD THIS WHEN \n's ARE FIXED.
 		'%s, %s, %s, %s',
-		// eo_get_venue_name(), ADD THIS WHEN \n's ARE FIXED.
 		$location_address['address'],
 		$location_address['city'],
 		$location_address['state'],
 		$location_address['country']
 	);
 
+	// REPLACE THIS ^ WITH THIS WHEN \n's ARE FIXED.
+	// $location         = sprintf(
+	// '%s\n%s\n%s, %s\n%s',
+	// eo_get_venue_name(),
+	// $location_address['address'],
+	// $location_address['city'],
+	// $location_address['state'],
+	// $location_address['country']
+	// );
 	$location = apply_filters( 'bdset_ical_location', $location );
 
 	return $location;
