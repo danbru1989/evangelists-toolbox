@@ -14,4 +14,4 @@ require_once __DIR__ . '/partials/index.php';
 require_once __DIR__ . '/event-organiser/general.php';
 require_once __DIR__ . '/event-organiser/google-maps.php';
 require_once __DIR__ . '/event-organiser/calendar-feed.php';
-require_once __DIR__ . '/event-organiser/events-rss-feed.php';
+// require_once __DIR__ . '/event-organiser/events-rss-feed.php';
