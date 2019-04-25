@@ -58,8 +58,16 @@ Filters the global Google Map options.
 #### bdset_map_styles
 Filters the global Google Map styles. Visit https://mapstyle.withgoogle.com to create your own.
 
+#### bdset_modify_rss_featured_image_size
+Allows for modifying the featured image size.
+
+#### bdset_modify_rss_featured_image_dimensions
+Filters the featured image height and width.
+
 
 ## Change Log
+
+1.4.0 - Added featured images to RSS feeds.
 
 1.3.1 – Added fix to only allow "public" events into the RSS feed.
 
