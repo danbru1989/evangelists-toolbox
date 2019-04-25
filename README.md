@@ -10,7 +10,8 @@ This is a WordPress plugin that provides itinerate evangelists with some tools a
 3. Hides unneeded Event Organiser admin fields.
 4. Filters iCal feed to add more itinerary details to each event.
 5. Filters the event custom post type RSS feed to add dates, city, state, and proper formatting.
-6. Plenty of built-in hooks and filters for extending Evangelists Toolbox – see below.
+6. Adds featured images to the main post RSS feed.
+7. Plenty of built-in hooks and filters for extending Evangelists Toolbox – see below.
 
 
 ## Hooks & Filters
