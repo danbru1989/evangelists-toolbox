@@ -37,9 +37,6 @@ function bdset_do_travel_news_loop() {
 		'posts_per_page'   => 1,
 		'suppress_filters' => false,
 		'event_end_after'  => 'today',
-		'meta_key'         => 'event_display_settings',
-		'meta_value'       => 'public',
-		'meta_compare'     => '=',
 	);
 
 	$event = new \WP_Query( $args );
