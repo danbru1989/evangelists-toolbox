@@ -68,6 +68,8 @@ Filters the featured image height and width.
 
 ## Change Log
 
+1.4.1 – Only allowed "public" events to be visible across the site, except for the itinerary page.
+
 1.4.0 - Added featured images to RSS feeds.
 
 1.3.1 – Added fix to only allow "public" events into the RSS feed.
