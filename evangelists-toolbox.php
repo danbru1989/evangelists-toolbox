@@ -3,7 +3,7 @@
  * Plugin Name: Evangelists Toolbox
  * Description: A collection of WordPress tools and integrations built for itinerate evangelists.
  *
- * Version:     1.4.1
+ * Version:     1.4.2
  *
  * Author:      Dan Brubaker
  * Author URI:  https://brubakerservices.org/

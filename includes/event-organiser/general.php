@@ -32,3 +32,15 @@ function bdset_public_events_query( $query ) {
 		$query->set( 'meta_value', 'public' );
 	}
 }
+
+/**
+ * Displays "Future" events by default on All Events admin page.
+ */
+add_action(
+	'wp_loaded',
+	function() {
+		if ( is_admin() && ! isset( $_GET['eo_interval'] ) ) {
+			$_GET['eo_interval'] = 'future';
+		}
+	}
+);
