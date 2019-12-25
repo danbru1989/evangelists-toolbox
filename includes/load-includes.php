@@ -1,11 +1,11 @@
 <?php
 /**
- * Loads the Admin Pages.
+ * Loads the various components.
  *
  * @package      BrubakerDesignServices\EvangelistsToolbox
  * @author       Dan Brubaker
  * @since        1.0.0
- **/
+ */
 
 require_once __DIR__ . '/setup.php';
 require_once __DIR__ . '/helpers.php';

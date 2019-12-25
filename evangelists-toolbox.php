@@ -16,7 +16,7 @@
 // Initialize Constants.
 define( 'BDSET_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'BDSET_PLUGIN_TEXT_DOMAIN', 'evangelists-toolbox' );
-define( 'BDSET_PLUGIN_VERSION', '1.4.1' );
+define( 'BDSET_PLUGIN_VERSION', '1.4.2' );
 
 add_action( 'plugins_loaded', 'bdset_init' );
 /**
