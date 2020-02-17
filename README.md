@@ -67,6 +67,8 @@ Filters the featured image height and width.
 
 
 ## Change Log
+1.5.0 – Added Notifications plugin support.
+
 1.4.2 – Forces "Future" events to show by default on the All Events admin page.
 
 1.4.1 – Only allowed "public" events to be visible across the site, except for the itinerary page.

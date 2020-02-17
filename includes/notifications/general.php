@@ -8,14 +8,14 @@
  */
 
 /**
- * Add custom merge tags to the Scheduled Events trigger.
+ * Add custom merge tags to the Events trigger.
  */
 add_action(
 	'notification/trigger/registered',
 	function( $trigger ) {
 
 		// Add merge tags to select triggers.
-		// if ( 'wordpress/event/published' == $trigger->get_slug() ) {
+		// if ( 'scheduled/event/ntfn_st_default' == $trigger->get_slug() || 'wordpress/event/published' == $trigger->get_slug() ) {
 
 			// Add Event Start Date.
 			$trigger->add_merge_tag(
@@ -24,7 +24,12 @@ add_action(
 						'slug'     => 'event_start_date',
 						'name'     => __( 'Event Start Date', 'evangelists-toolbox' ),
 						'resolver' => function( $trigger ) {
-							return eo_get_the_start( 'Y-m-d' );
+							$post_id    = $trigger->{ $trigger->get_post_type() }->ID;
+							$occurrence = eo_get_next_occurrence_of( $post_id );
+							if ( ! $occurrence ) {
+								$occurrence = eo_get_current_occurrence_of( $post_id );
+							}
+							return eo_get_the_start( 'F j, Y', $post_id, $occurrence['occurrence_id'] );
 						},
 					)
 				)
@@ -37,7 +42,51 @@ add_action(
 						'slug'     => 'event_end_date',
 						'name'     => __( 'Event End Date', 'evangelists-toolbox' ),
 						'resolver' => function( $trigger ) {
-							return eo_get_the_end( 'Y-m-d' );
+							$post_id    = $trigger->{ $trigger->get_post_type() }->ID;
+							$occurrence = eo_get_next_occurrence_of( $post_id );
+							if ( ! $occurrence ) {
+								$occurrence = eo_get_current_occurrence_of( $post_id );
+							}
+							return eo_get_the_end( 'F j, Y', $post_id, $occurrence['occurrence_id'] );
+						},
+					)
+				)
+			);
+
+			// Add Event Display Setting.
+			$trigger->add_merge_tag(
+				new BracketSpace\Notification\Defaults\MergeTag\StringTag(
+					array(
+						'slug'     => 'event_display_setting',
+						'name'     => __( 'Event Display Setting', 'evangelists-toolbox' ),
+						'resolver' => function( $trigger ) {
+							return get_post_meta( get_the_ID(), 'event_display_settings', true );
+						},
+					)
+				)
+			);
+
+			// Add Primary Event Contact.
+			$trigger->add_merge_tag(
+				new BracketSpace\Notification\Defaults\MergeTag\StringTag(
+					array(
+						'slug'     => 'primary_contact',
+						'name'     => __( 'Primary Contact', 'evangelists-toolbox' ),
+						'resolver' => function( $trigger ) {
+							return get_post_meta( get_the_ID(), 'primary_event_contact', true );
+						},
+					)
+				)
+			);
+
+			// Add Primary Event Email.
+			$trigger->add_merge_tag(
+				new BracketSpace\Notification\Defaults\MergeTag\StringTag(
+					array(
+						'slug'     => 'primary_contact_email',
+						'name'     => __( 'Primary Contact Email', 'evangelists-toolbox' ),
+						'resolver' => function( $trigger ) {
+							return get_post_meta( get_the_ID(), 'email', true );
 						},
 					)
 				)
