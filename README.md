@@ -67,6 +67,8 @@ Filters the featured image height and width.
 
 
 ## Change Log
+1.5.1 – Fixed and improved iCal feeds. Improved map styles.
+
 1.5.0 – Added Notifications plugin support.
 
 1.4.2 – Forces "Future" events to show by default on the All Events admin page.
