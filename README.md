@@ -67,6 +67,8 @@ Filters the featured image height and width.
 
 
 ## Change Log
+1.5.2 – Fixed iCal event titles with messed up characters.
+
 1.5.1 – Fixed and improved iCal feeds. Improved map styles.
 
 1.5.0 – Added Notifications plugin support.

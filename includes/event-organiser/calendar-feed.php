@@ -23,6 +23,8 @@ add_filter(
 			$event_title = get_the_title() . ' – ' . $location_address['city'] . ', ' . $location_address['state'];
 		}
 
+		$event_title = html_entity_decode( $event_title );
+
 		return $event_title;
 	}
 );
