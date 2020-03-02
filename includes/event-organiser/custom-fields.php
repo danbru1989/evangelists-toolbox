@@ -49,8 +49,8 @@ add_action(
 								'id'    => '',
 							),
 							'choices'           => array(
-								'confirmed'   => 'Event is confirmed',
-								'pending'     => 'Event is pending',
+								'confirmed'   => 'Confirmed',
+								'pending'     => 'Pending',
 								'unavailable' => 'Hide details and mark as "Unavailable"',
 							),
 							'allow_null'        => 0,
