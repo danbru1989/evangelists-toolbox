@@ -30,8 +30,8 @@ add_action(
 
 		if ( ! bdset_check_dependencies() ) {
 
+			deactivate_plugins( plugin_basename( __FILE__ ) );
 			add_action( 'admin_notices', 'bdset_init_fail_notice' );
-			// deactivate_plugins( plugin_basename( __FILE__ ) ); // NOT WORKING ON WP 5.1.1 - try later to see if fixed. If never fixed use with the 'admin_init' hook.
 
 		} else {
 

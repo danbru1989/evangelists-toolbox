@@ -17,14 +17,27 @@ function bdset_check_dependencies() {
 	// Check for Events Organiser.
 	if ( ! function_exists( 'eo_get_events' ) ) {
 
-		$plugin = 'Events Organiser';
+		$plugin_name = 'Events Organiser';
 
 		return false;
 	}
+
 	// Check for Advanced Custom Fields.
-	// if ( ! class_exists( 'ACF' ) ) {
-	// return false;
+	if ( ! class_exists( 'ACF' ) ) {
+
+		$plugin_name = 'Advanced Custom Fields';
+
+		return false;
+	}
+
+	// Check for Notification.
+	// if ( ! class_exists( '' ) ) {
+
+	// 	$plugin_name = 'Notification';
+
+	// 	return false;
 	// }
+
 	// All dependencies found.
 	return true;
 }
@@ -35,5 +48,5 @@ function bdset_check_dependencies() {
  * @return void
  */
 function bdset_init_fail_notice() {
-	echo '<div class="error"><p><strong>Evangelists Toolbox cannot be activated. </strong>You do not have all the required plugins installed.</p></div>';
+	echo '<div class="error"><p>Evangelists Toolbox cannot be used. Check that all required plugins are activated.</p></div>';
 }
