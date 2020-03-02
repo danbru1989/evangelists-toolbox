@@ -10,14 +10,15 @@
 /**
  * Checks dependencies.
  *
- * This plugin requires Advanced Custom Fields and Events Organiser.
- *
  * @return boolean
  */
 function bdset_check_dependencies() {
 
 	// Check for Events Organiser.
 	if ( ! function_exists( 'eo_get_events' ) ) {
+
+		$plugin = 'Events Organiser';
+
 		return false;
 	}
 	// Check for Advanced Custom Fields.

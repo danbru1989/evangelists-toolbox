@@ -8,3 +8,4 @@
  **/
 
 require_once __DIR__ . '/travel-news.php';
+require_once __DIR__ . '/itinerary.php';

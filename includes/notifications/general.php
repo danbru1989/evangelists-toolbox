@@ -15,7 +15,7 @@ add_action(
 	function( $trigger ) {
 
 		// Add merge tags to select triggers.
-		// if ( 'scheduled/event/ntfn_st_default' == $trigger->get_slug() || 'wordpress/event/published' == $trigger->get_slug() ) {
+		if ( 'scheduled/event/ntfn_st_default' == $trigger->get_slug() || 'wordpress/event/published' == $trigger->get_slug() ) {
 
 			// Add Event Start Date.
 			$trigger->add_merge_tag(
@@ -53,14 +53,27 @@ add_action(
 				)
 			);
 
-			// Add Event Display Setting.
+			// Add Event Status.
 			$trigger->add_merge_tag(
 				new BracketSpace\Notification\Defaults\MergeTag\StringTag(
 					array(
-						'slug'     => 'event_display_setting',
-						'name'     => __( 'Event Display Setting', 'evangelists-toolbox' ),
+						'slug'     => 'event_status',
+						'name'     => __( 'Event Status', 'evangelists-toolbox' ),
 						'resolver' => function( $trigger ) {
-							return get_post_meta( get_the_ID(), 'event_display_settings', true );
+							return get_post_meta( get_the_ID(), 'event_status', true );
+						},
+					)
+				)
+			);
+
+			// Add Event Email Automation.
+			$trigger->add_merge_tag(
+				new BracketSpace\Notification\Defaults\MergeTag\StringTag(
+					array(
+						'slug'     => 'event_automation',
+						'name'     => __( 'Event Email Automation', 'evangelists-toolbox' ),
+						'resolver' => function( $trigger ) {
+							return get_post_meta( get_the_ID(), 'event_automation', true );
 						},
 					)
 				)
@@ -92,6 +105,6 @@ add_action(
 				)
 			);
 
-		// }
+		}
 	}
 );

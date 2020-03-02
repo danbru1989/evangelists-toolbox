@@ -3,6 +3,14 @@
 This is a WordPress plugin that provides itinerate evangelists with some tools and integrations for their websites.
 
 
+## Plugin Dependancies
+1. Advanced Custom Fields
+2. Event Organiser
+3. Notifications
+4. Notifications – Conditional Logic
+5. Notifications – Scheduled Triggers
+
+
 ## Features
 
 1. Allows Event Organiser to have venues with the same name.
@@ -65,8 +73,15 @@ Allows for modifying the featured image size.
 #### bdset_modify_rss_featured_image_dimensions
 Filters the featured image height and width.
 
+#### change_pending_output
+Filters the standard "pending" text output.
+
+#### change_admin_pending_output
+Filters the standard "pending" text output in the admin.
 
 ## Change Log
+2.0.0 – Added itinerary output function. Tweaked pending system. Added "More Event Details" custom fields.
+
 1.5.2 – Fixed iCal event titles with messed up characters.
 
 1.5.1 – Fixed and improved iCal feeds. Improved map styles.
