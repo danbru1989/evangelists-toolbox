@@ -443,7 +443,7 @@ add_action(
 					array(
 						array(
 							'param'    => 'post_type',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'event',
 						),
 					),
