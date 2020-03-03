@@ -16,7 +16,7 @@
 add_filter(
 	'eventorganiser_venue_map_options',
 	function( $map_args ) {
-		$map_args['zoom']        = 6;
+		$map_args['zoom']        = intval( get_field( 'google_map_zoom', 'option' ) );
 		$map_args['minzoom']     = 2;
 		$map_args['scrollwheel'] = false;
 		$map_args['styles']      = bdset_add_map_styles();

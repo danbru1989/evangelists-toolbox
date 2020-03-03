@@ -172,12 +172,12 @@
 		"oAP": "/includes/load-includes.php",
 		"oF": 0
 		},
-	"/includes/notifications/general.php": {
+	"/includes/notification/general.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/includes/notifications/general.php",
+		"oAP": "/includes/notification/general.php",
 		"oF": 0
 		},
 	"/includes/partials/index.php": {

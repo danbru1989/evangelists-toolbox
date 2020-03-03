@@ -55,7 +55,7 @@ add_action(
 							),
 							'allow_null'        => 0,
 							'other_choice'      => 0,
-							'default_value'     => 'pending',
+							'default_value'     => get_field( 'event_status', 'option' ),
 							'layout'            => 'vertical',
 							'return_format'     => 'value',
 							'save_other_choice' => 0,
