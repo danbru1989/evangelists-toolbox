@@ -85,7 +85,6 @@ add_action(
 							'name'              => 'email',
 							'type'              => 'email',
 							'instructions'      => 'Add an email address for the primary contact',
-							'required'          => 1,
 							'conditional_logic' => 0,
 							'wrapper'           => array(
 								'width' => '33.33333',
