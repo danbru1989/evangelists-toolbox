@@ -30,7 +30,7 @@ add_action(
 
 		if ( has_post_thumbnail() ) {
 
-			$size       = 'featured-image-rss';
+			$size       = 'featured-image';
 			$dimensions = 'width="600" height="300"';
 
 			$size       = apply_filters( 'bdset_modify_rss_featured_image_size', $size );

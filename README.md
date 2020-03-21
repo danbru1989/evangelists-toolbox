@@ -80,6 +80,8 @@ Filters the standard "pending" text output.
 Filters the standard "pending" text output in the admin.
 
 ## Change Log
+2.1.1 – Fixed calendar event title to accomodate "PENDING" status.
+
 2.1.0 – Added settings page and options for default event status and Google Map zoom.
 
 2.0.0 – Added itinerary output function. Tweaked pending system. Added "More Event Details" custom fields.

@@ -204,6 +204,14 @@
 		"oAP": "/includes/partials/travel-news.php",
 		"oF": 0
 		},
+	"/includes/settings.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/includes/settings.php",
+		"oF": 0
+		},
 	"/includes/setup.php": {
 		"cB": 0,
 		"ft": 8192,
