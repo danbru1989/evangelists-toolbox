@@ -51,6 +51,7 @@ add_action(
 							'choices'           => array(
 								'confirmed'   => 'Confirmed',
 								'pending'     => 'Pending',
+								'cancelled'   => 'Cancelled',
 								'unavailable' => 'Hide details and mark as "Unavailable"',
 							),
 							'allow_null'        => 0,

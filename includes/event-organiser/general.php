@@ -22,7 +22,7 @@ add_filter(
 );
 
 /**
- * Allows only events with the Event Status of "Pending" or "Confirmed" to be seen across the site, except for the itinerary page.
+ * Allows only events with the Event Status of "Confirmed", "Pending", or "Cancelled" to be seen across the site, except for the itinerary page.
  *
  * @param object $query The event query.
  * @return void
@@ -44,6 +44,10 @@ add_action(
 						'key'   => 'event_status',
 						'value' => 'pending',
 					),
+					array(
+						'key'   => 'event_status',
+						'value' => 'cancelled',
+					),
 				),
 			);
 		}
@@ -51,27 +55,37 @@ add_action(
 );
 
 /**
- * Prepends "PENDING" to a pending event title.
+ * Prepends event status to the title.
  */
 add_filter(
 	'the_title',
 	function( $title, $id ) {
-		if ( 'event' === get_post_type( $id ) && 'pending' === get_field( 'event_status' ) ) {
+
+		if ( 'event' !== get_post_type( $id ) ) {
+			return $title;
+		}
+
+		if ( 'pending' === get_field( 'event_status' ) || 'cancelled' === get_field( 'event_status' ) ) {
+
+			$status = strtoupper( get_field( 'event_status' ) );
 
 			if ( is_admin() ) {
-				$pending = 'PENDING – ';
-				$pending = apply_filters( 'change_admin_pending_output', $pending );
+				$status = $status . ' – ';
+				$status = apply_filters( 'change_admin_event_status_output', $status );
 
-				$title = $pending . $title;
+				$title = $status . $title;
 
 				return $title;
 			}
 
-			$pending = '<span class="pending">PENDING</span> – ';
-			$pending = apply_filters( 'change_pending_output', $pending );
+			$status = '<span class="event-status">' . $status . '</span> – ';
+			$status = apply_filters( 'change_event_status_output', $status );
 
-			$title = $pending . $title;
+			$title = $status . $title;
+
+			return $title;
 		}
+
 		return $title;
 	},
 	10,

@@ -90,7 +90,7 @@ function bdset_add_event_loop() {
 			}
 
 			// Pending event output.
-			if ( get_field( 'event_status' ) === 'pending' ) {
+			if ( 'pending' === get_field( 'event_status' ) || 'cancelled' === get_field( 'event_status' ) ) {
 
 				?>
 				<a class="row has-special-status" href="<?php the_permalink(); ?>" alt="<?php the_title_attribute(); ?>">

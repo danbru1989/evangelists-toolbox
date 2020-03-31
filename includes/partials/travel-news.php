@@ -37,6 +37,8 @@ function bdset_do_travel_news_loop() {
 		'posts_per_page'   => 1,
 		'suppress_filters' => false,
 		'event_end_after'  => 'today',
+		'meta_key'         => 'event_status',
+		'meta_value'       => 'confirmed',
 	);
 
 	$event = new \WP_Query( $args );
@@ -50,9 +52,9 @@ function bdset_do_travel_news_loop() {
 
 			do_action( 'bdset_before_travel_news_content' );
 
-			$title = get_the_title();
-			$start_date = eo_get_the_start( 'Y-m-d' );
-			$end_date = eo_get_the_end( 'Y-m-d' );
+			$title        = get_the_title();
+			$start_date   = eo_get_the_start( 'Y-m-d' );
+			$end_date     = eo_get_the_end( 'Y-m-d' );
 			$current_date = current_time( 'Y-m-d' );
 
 			// Event syntax tense output.
