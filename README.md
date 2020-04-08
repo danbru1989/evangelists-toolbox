@@ -80,6 +80,8 @@ Filters the standard "pending" text output.
 Filters the standard "pending" text output in the admin.
 
 ## Change Log
+2.2.2 – Updated Notifications classes for Notifications Version 7.
+
 2.2.1 – Added "CANCELLED" event status.
 
 2.1.1 – Fixed calendar event title to accomodate "PENDING" status.

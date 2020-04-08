@@ -15,7 +15,7 @@ add_action(
 	function( $trigger ) {
 
 		// Add merge tags to select triggers.
-		if ( 'scheduled/event/ntfn_st_default' == $trigger->get_slug() || 'wordpress/event/published' == $trigger->get_slug() ) {
+		if ( 'scheduled/event/ntfn_st_default' == $trigger->get_slug() || 'post/event/published' == $trigger->get_slug() ) {
 
 			// Add Event Start Date.
 			$trigger->add_merge_tag(
